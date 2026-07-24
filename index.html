@@ -117,8 +117,15 @@
     border:1px solid var(--line);
     border-radius:4px;
     padding:1.5rem 1.5rem 1.7rem;
+    transition:transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   }
-  .card i{color:var(--accent);font-size:1.2rem;margin-bottom:0.7rem;display:block;}
+  .card:hover{
+  transform:translateY(-6px);
+  border-color:var(--accent);
+  box-shadow:0 10px 24px rgba(122,106,82,0.16);
+}
+.card i{color:var(--accent);font-size:1.2rem;margin-bottom:0.7rem;display:block;transition:transform 0.25s ease;}
+.card:hover i{transform:scale(1.15);}
   .card h3{font-size:1.05rem;margin-bottom:0.4rem;}
   .card p{font-size:0.92rem;color:var(--text-dim);}
 
@@ -128,7 +135,16 @@
   .content-block ul{list-style:none;padding-left:0;}
   .content-block ul li{padding:0.35rem 0 0.35rem 1.4rem;position:relative;font-size:0.98rem;color:#3a3730;}
   .content-block ul li::before{content:'—';position:absolute;left:0;color:var(--accent);}
-
+  .cv-btn{
+  display:inline-flex;align-items:center;gap:0.55rem;
+  background:var(--accent);color:#fff;
+  font-size:0.92rem;font-weight:500;
+  padding:0.65rem 1.3rem;
+  border-radius:4px;
+  margin:0.4rem 0 1.6rem;
+  transition:background 0.2s, transform 0.2s;
+}
+.cv-btn:hover{background:#5f5240;transform:translateY(-2px);}
   .pill-row{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.8rem;}
   .pill{
     font-size:0.8rem;
@@ -315,6 +331,9 @@
           <span class="pill">Quantum Sensing &amp; Metrology</span>
         </div>
       </div>
+      <a href="CV_Sandipan_Hazra_Updated_2025.pdf" target="_blank" rel="noopener noreferrer" class="cv-btn">
+  <i class="fas fa-file-arrow-down"></i> View / Download CV
+</a>
     </div>
   </section>
 
