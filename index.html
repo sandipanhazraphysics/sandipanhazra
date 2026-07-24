@@ -1,1282 +1,511 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Sandipan Hazra | Quantum Information</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sandipan Hazra · Quantum Information</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
-
-body{
-
-font-family:Inter,sans-serif;
-background:#f5f7fb;
-color:#222;
-line-height:1.7;
-
-}
-
-.container{
-
-width:90%;
-max-width:1200px;
-margin:auto;
-
-}
-
-section{
-
-padding:90px 0;
-
-}
-
-h1,h2,h3{
-
-font-family:"Playfair Display",serif;
-
-}
-
-a{
-
-text-decoration:none;
-color:inherit;
-
-}
-
-/*======================
-Navigation
-======================*/
-
-header{
-
-position:fixed;
-top:0;
-left:0;
-width:100%;
-background:rgba(10,18,34,.85);
-backdrop-filter:blur(12px);
-z-index:1000;
-
-}
-
-nav{
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 0;
-
-}
-
-.logo{
-
-color:white;
-font-size:28px;
-font-weight:700;
-font-family:"Playfair Display",serif;
-
-}
-
-.logo span{
-
-color:#58c4ff;
-
-}
-
-nav ul{
-
-display:flex;
-list-style:none;
-gap:28px;
-
-}
-
-nav ul li a{
-
-color:white;
-font-size:15px;
-transition:.3s;
-
-}
-
-nav ul li a:hover{
-
-color:#58c4ff;
-
-}
-
-/*======================
-Hero
-======================*/
-
-.hero{
-
-min-height:100vh;
-display:flex;
-align-items:center;
-background:linear-gradient(120deg,#08111f,#132d4d);
-
-color:white;
-
-}
-
-.hero-content{
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:60px;
-
-}
-
-.hero-text{
-
-flex:1;
-
-}
-
-.hero-text h1{
-
-font-size:64px;
-margin-bottom:15px;
-
-}
-
-.hero-text h2{
-
-font-size:28px;
-font-weight:400;
-color:#58c4ff;
-margin-bottom:25px;
-
-}
-
-.hero-text p{
-
-font-size:18px;
-max-width:700px;
-margin-bottom:35px;
-
-}
-
-.buttons{
-
-display:flex;
-gap:20px;
-
-}
-
-.btn{
-
-padding:14px 32px;
-border-radius:40px;
-font-weight:600;
-transition:.3s;
-
-}
-
-.primary{
-
-background:#58c4ff;
-color:#08111f;
-
-}
-
-.primary:hover{
-
-background:white;
-
-}
-
-.secondary{
-
-border:2px solid white;
-
-}
-
-.secondary:hover{
-
-background:white;
-color:#08111f;
-
-}
-
-.hero-image{
-
-flex:0.8;
-display:flex;
-justify-content:center;
-
-}
-
-.profile{
-
-width:280px;
-height:280px;
-border-radius:50%;
-background:linear-gradient(135deg,#58c4ff,#2b6fff);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:120px;
-color:white;
-box-shadow:0 20px 40px rgba(0,0,0,.35);
-
-}
-
-/*======================
-Section Titles
-======================*/
-
-.title{
-
-text-align:center;
-margin-bottom:60px;
-
-}
-
-.title h2{
-
-font-size:42px;
-color:#0a1830;
-
-}
-
-.title p{
-
-color:#666;
-margin-top:10px;
-
-}
-
+  :root{
+    --bg:#fbfaf8;
+    --surface:#ffffff;
+    --line:#e4e0d9;
+    --text:#26241f;
+    --text-dim:#726d61;
+    --accent:#7a6a52;
+    --accent-soft:#f1ede4;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    font-weight:300;
+    line-height:1.7;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+  }
+
+  main{flex:1;}
+  a{text-decoration:none;color:inherit;}
+  .container{max-width:960px;margin:0 auto;padding:0 2rem;}
+
+  h1,h2,h3,h4{font-family:'Source Serif 4', serif;font-weight:600;letter-spacing:0;color:#1c1a16;}
+  h1{font-size:2.6rem;line-height:1.2;}
+  h2{font-size:1.65rem;margin-bottom:0.3rem;}
+
+  .eyebrow{
+    font-size:0.78rem;
+    color:var(--accent);
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    margin-bottom:0.5rem;
+    display:inline-block;
+  }
+
+  .rule{
+    border:none;
+    height:1px;
+    background:var(--line);
+    margin:0.7rem 0 2.2rem;
+  }
+
+  /* ---------- header ---------- */
+  .site-header{
+    background:rgba(251,250,248,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:1000;
+    padding:1rem 0;
+  }
+  .header-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;}
+  .logo{font-family:'Source Serif 4', serif;font-size:1.2rem;font-weight:600;}
+  .logo small{display:block;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);margin-top:2px;font-weight:400;font-family:'Inter',sans-serif;}
+
+  .main-nav ul{display:flex;list-style:none;gap:1.8rem;flex-wrap:wrap;}
+  .main-nav a{
+    font-size:0.88rem;
+    color:var(--text-dim);
+    transition:color 0.2s;
+    padding-bottom:3px;
+    border-bottom:1px solid transparent;
+  }
+  .main-nav a:hover, .main-nav a.active{color:var(--text);border-bottom-color:var(--accent);}
+
+  .nav-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+
+  /* ---------- pages ---------- */
+  .page{display:none;padding:3rem 0 4rem;}
+  .page.active{display:block;}
+
+  /* ---------- hero ---------- */
+  .hero{display:flex;flex-wrap:wrap;align-items:center;gap:3rem;padding:1rem 0 2.5rem;}
+  .hero-text{flex:2;min-width:280px;}
+  .hero-text .greeting{font-size:0.85rem;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;}
+  .hero-text h1{margin:0.4rem 0 0.5rem;}
+  .hero-text .title-line{font-size:1.05rem;color:var(--text-dim);margin-bottom:1.3rem;font-family:'Source Serif 4', serif;font-style:italic;}
+  .hero-text .bio{font-size:1.02rem;max-width:600px;color:#3a3730;}
+  .hero-text .bio strong{color:#1c1a16;font-weight:600;}
+
+  .hero-visual{flex:1;min-width:180px;text-align:center;}
+  .avatar-mark{
+    width:150px;height:150px;
+    margin:0 auto;
+    border-radius:50%;
+    background:var(--accent-soft);
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Source Serif 4', serif;
+    font-size:2.6rem;
+    font-weight:600;
+    color:var(--accent);
+  }
+  .hero-visual .caption{margin-top:0.9rem;font-size:0.82rem;color:var(--text-dim);letter-spacing:0.04em;}
+
+  /* ---------- cards ---------- */
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.3rem;margin-top:1.5rem;}
+  .card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:1.5rem 1.5rem 1.7rem;
+  }
+  .card i{color:var(--accent);font-size:1.2rem;margin-bottom:0.7rem;display:block;}
+  .card h3{font-size:1.05rem;margin-bottom:0.4rem;}
+  .card p{font-size:0.92rem;color:var(--text-dim);}
+
+  /* ---------- content blocks ---------- */
+  .content-block{max-width:760px;}
+  .content-block p{margin-bottom:1.1rem;font-size:1rem;color:#3a3730;}
+  .content-block ul{list-style:none;padding-left:0;}
+  .content-block ul li{padding:0.35rem 0 0.35rem 1.4rem;position:relative;font-size:0.98rem;color:#3a3730;}
+  .content-block ul li::before{content:'—';position:absolute;left:0;color:var(--accent);}
+
+  .pill-row{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.8rem;}
+  .pill{
+    font-size:0.8rem;
+    background:var(--accent-soft);
+    border:1px solid var(--line);
+    color:var(--accent);
+    padding:0.32rem 0.75rem;
+    border-radius:3px;
+  }
+
+  /* ---------- timeline (education) ---------- */
+  .timeline{position:relative;padding-left:2rem;}
+  .timeline::before{content:'';position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:var(--line);}
+  .t-item{position:relative;margin-bottom:1.9rem;}
+  .t-item::before{
+    content:'';position:absolute;left:-2rem;top:6px;
+    width:9px;height:9px;border-radius:50%;
+    background:var(--bg);border:2px solid var(--accent);
+  }
+  .t-year{font-size:0.82rem;color:var(--accent);letter-spacing:0.03em;}
+  .t-item h3{font-size:1.1rem;margin:0.2rem 0 0.3rem;}
+  .t-item p{font-size:0.95rem;color:var(--text-dim);}
+  .t-item .badge{
+    display:inline-block;margin-top:0.4rem;
+    font-size:0.75rem;
+    color:var(--accent);border:1px solid var(--line);
+    padding:0.15rem 0.55rem;border-radius:3px;
+    background:var(--accent-soft);
+  }
+
+  /* ---------- achievements / test scores ---------- */
+  .num-list{list-style:none;padding:0;}
+  .num-list li{
+    display:flex;gap:0.9rem;
+    padding:0.7rem 0;border-bottom:1px solid var(--line);
+    font-size:0.97rem;color:#3a3730;
+  }
+  .num-list li:last-child{border-bottom:none;}
+  .num-list .idx{color:var(--accent);flex-shrink:0;width:1.6rem;font-size:0.85rem;}
+
+  .score-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1rem;}
+  .score-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:4px;
+    padding:1.1rem 1.2rem;
+  }
+  .score-card .label{font-size:0.75rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.05em;}
+  .score-card .value{font-family:'Source Serif 4', serif;font-size:1.35rem;font-weight:600;color:var(--text);margin-top:0.2rem;}
+  .score-card .sub{font-size:0.85rem;color:var(--text-dim);margin-top:0.15rem;}
+
+  /* ---------- skills page ---------- */
+  .skill-block{margin-bottom:1.7rem;}
+  .skill-block h3{font-size:0.8rem;color:var(--accent);margin-bottom:0.6rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;font-family:'Inter',sans-serif;}
+
+  /* ---------- contact ---------- */
+  .contact-row{display:flex;flex-wrap:wrap;gap:2.2rem;margin-top:1.8rem;}
+  .contact-item{display:flex;align-items:center;gap:0.8rem;font-size:1rem;}
+  .contact-item i{width:1.8rem;color:var(--accent);font-size:1.1rem;text-align:center;}
+
+  /* ---------- footer ---------- */
+  .site-footer{
+    background:var(--surface);
+    border-top:1px solid var(--line);
+    padding:1.2rem 0;
+  }
+  .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+  .copy{font-size:0.85rem;color:var(--text-dim);}
+  .footer-social a{color:var(--text-dim);font-size:1.05rem;margin-left:16px;transition:color 0.2s;}
+  .footer-social a:hover{color:var(--accent);}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:820px){
+    .nav-toggle{display:block;}
+    .main-nav{width:100%;display:none;padding-top:1rem;}
+    .main-nav.open{display:block;}
+    .main-nav ul{flex-direction:column;gap:0.8rem;}
+    .hero{flex-direction:column-reverse;text-align:center;}
+    .hero-text .bio{margin:0 auto;}
+    h1{font-size:2.1rem;}
+    .container{padding:0 1.2rem;}
+    .timeline{padding-left:1.6rem;}
+  }
 </style>
-
 </head>
-
 <body>
 
-<header>
-
-<div class="container">
-
-<nav>
-
-<div class="logo">
-
-Sandipan <span>Hazra</span>
-
-</div>
-
-<ul>
-
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#research">Research</a></li>
-<li><a href="#education">Education</a></li>
-<li><a href="#awards">Awards</a></li>
-<li><a href="#publications">Publications</a></li>
-<li><a href="#contact">Contact</a></li>
-
-</ul>
-
-</nav>
-
-</div>
-
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo">
+      Sandipan Hazra
+      <small>PhD Scholar · Quantum Information</small>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="#" class="active" data-page="home">Home</a></li>
+        <li><a href="#" data-page="about">About</a></li>
+        <li><a href="#" data-page="education">Education</a></li>
+        <li><a href="#" data-page="achievements">Achievements</a></li>
+        <li><a href="#" data-page="skills">Skills</a></li>
+        <li><a href="#" data-page="contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
-<section class="hero" id="home">
-
-<div class="container hero-content">
-
-<div class="hero-text">
-
-<h1>Sandipan Hazra</h1>
-
-<h2>PhD Scholar | Quantum Information Theory</h2>
-
-<p>
-
-I am a PhD Scholar in the Department of Physics at the Indian Institute of Technology
-Kharagpur. My research focuses on Quantum Information Theory, with interests in
-Discrete-Time Quantum Walks, Quantum Computing, Quantum Correlations,
-Multipartite Entanglement, Quantum Algorithms and Quantum Technologies.
-
-</p>
-
-<div class="buttons">
-
-<a href="#about" class="btn primary">
-
-About Me
-
-</a>
-
-<a href="#contact" class="btn secondary">
-
-Contact
-
-</a>
-
-</div>
-
-</div>
-
-<div class="hero-image">
-
-<div class="profile">
-
-<i class="fas fa-user-graduate"></i>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-/*==========================
-ABOUT
-==========================*/
-
-.about-grid{
-
-display:grid;
-grid-template-columns:2fr 1fr;
-gap:60px;
-align-items:start;
-
-}
-
-.about-text p{
-
-margin-bottom:22px;
-font-size:17px;
-text-align:justify;
-
-}
-
-.about-info{
-
-display:flex;
-flex-direction:column;
-gap:25px;
-
-}
-
-.info-card{
-
-background:white;
-padding:30px;
-border-radius:18px;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-}
-
-.info-card h3{
-
-margin-bottom:15px;
-color:#0a1830;
-
-}
-
-.info-card ul{
-
-list-style:none;
-
-}
-
-.info-card li{
-
-padding:8px 0;
-border-bottom:1px solid #eee;
-
-}
-
-
-
-/*==========================
-RESEARCH
-==========================*/
-
-.research-grid{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:30px;
-
-}
-
-.research-card{
-
-background:white;
-padding:35px;
-text-align:center;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-transition:.35s;
-
-}
-
-.research-card:hover{
-
-transform:translateY(-12px);
-
-}
-
-.research-card i{
-
-font-size:48px;
-color:#2d8cff;
-margin-bottom:20px;
-
-}
-
-.research-card h3{
-
-margin-bottom:15px;
-
-}
-
-
-
-/*==========================
-TIMELINE
-==========================*/
-
-.timeline{
-
-position:relative;
-max-width:900px;
-margin:auto;
-
-}
-
-.timeline::before{
-
-content:"";
-position:absolute;
-left:22px;
-top:0;
-bottom:0;
-width:3px;
-background:#2d8cff;
-
-}
-
-.timeline-item{
-
-display:flex;
-margin-bottom:50px;
-
-}
-
-.circle{
-
-width:45px;
-height:45px;
-background:#2d8cff;
-border-radius:50%;
-flex-shrink:0;
-margin-right:30px;
-position:relative;
-z-index:5;
-
-}
-
-.timeline-content{
-
-background:white;
-padding:30px;
-border-radius:18px;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-width:100%;
-
-}
-
-.timeline-content h4{
-
-margin:8px 0;
-color:#2d8cff;
-
-}
-
-.timeline-content span{
-
-font-weight:600;
-color:#666;
-
-}
-
-
-
-/*==========================
-RESPONSIVE
-==========================*/
-
-@media(max-width:900px){
-
-.about-grid{
-
-grid-template-columns:1fr;
-
-}
-
-}
-<!-- =========================================
-ABOUT
-========================================= -->
-
-<section id="about">
-
-<div class="container">
-
-<div class="title">
-
-<h2>About Me</h2>
-
-<p>Research • Innovation • Quantum Technologies</p>
-
-</div>
-
-<div class="about-grid">
-
-<div class="about-text">
-
-<p>
-
-I am currently pursuing my <strong>PhD in Physics</strong> at the
-<strong>Indian Institute of Technology Kharagpur</strong>, where I work in
-<strong>Quantum Information Theory</strong>. My research is centered on understanding
-fundamental aspects of quantum systems while developing tools for quantum information
-processing and quantum technologies.
-
-</p>
-
-<p>
-
-My current interests include <strong>Discrete-Time Quantum Walks</strong>,
-quantum correlations, multipartite entanglement, quantum communication,
-quantum algorithms, and quantum computing. I am particularly interested in
-how quantum walks can be utilized for quantum information processing and
-many-body quantum systems.
-
-</p>
-
-<p>
-
-Beyond research, I enjoy scientific discussions, mentoring students,
-science communication, and developing efficient computational methods for
-large-scale quantum simulations.
-
-</p>
-
-</div>
-
-<div class="about-info">
-
-<div class="info-card">
-
-<h3>Research Areas</h3>
-
-<ul>
-
-<li>Quantum Information Theory</li>
-
-<li>Discrete-Time Quantum Walks</li>
-
-<li>Quantum Computing</li>
-
-<li>Quantum Correlations</li>
-
-<li>Multipartite Entanglement</li>
-
-<li>Quantum Algorithms</li>
-
-<li>Quantum Technologies</li>
-
-</ul>
-
-</div>
-
-<div class="info-card">
-
-<h3>Programming</h3>
-
-<ul>
-
-<li>Python</li>
-
-<li>Qiskit SDK</li>
-
-<li>FORTRAN 90</li>
-
-<li>Linux</li>
-
-<li>LaTeX</li>
-
-<li>Origin</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-
-
-<!-- =========================================
-RESEARCH
-========================================= -->
-
-<section id="research">
-
-<div class="container">
-
-<div class="title">
-
-<h2>Research Interests</h2>
-
-<p>Current Areas of Investigation</p>
-
-</div>
-
-<div class="research-grid">
-
-<div class="research-card">
-
-<i class="fas fa-atom"></i>
-
-<h3>Quantum Information</h3>
-
-<p>
-
-Understanding quantum correlations, entanglement, quantum resources,
-and their applications in information processing.
-
-</p>
-
-</div>
-
-<div class="research-card">
-
-<i class="fas fa-wave-square"></i>
-
-<h3>Quantum Walks</h3>
-
-<p>
-
-Discrete-Time Quantum Walks, topological quantum walks,
-noise-assisted dynamics, localization,
-and multipartite entanglement generation.
-
-</p>
-
-</div>
-
-<div class="research-card">
-
-<i class="fas fa-microchip"></i>
-
-<h3>Quantum Computing</h3>
-
-<p>
-
-Quantum algorithms, quantum circuits,
-quantum simulations,
-and applications using Qiskit.
-
-</p>
-
-</div>
-
-<div class="research-card">
-
-<i class="fas fa-project-diagram"></i>
-
-<h3>Quantum Correlations</h3>
-
-<p>
-
-Multipartite entanglement,
-steering,
-Bell nonlocality,
-and quantum resource theories.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-
-
-
-<!-- =========================================
-EDUCATION
-========================================= -->
-
-<section id="education">
-
-<div class="container">
-
-<div class="title">
-
-<h2>Education</h2>
-
-<p>Academic Journey</p>
-
-</div>
-
-<div class="timeline">
-
-<div class="timeline-item">
-
-<div class="circle"></div>
-
-<div class="timeline-content">
-
-<h3>PhD in Physics</h3>
-
-<h4>Indian Institute of Technology Kharagpur</h4>
-
-<span>2025 – Present</span>
-
-<p>
-
-Research Area:
-Quantum Information Theory
-
-</p>
-
-</div>
-
-</div>
-
-<div class="timeline-item">
-
-<div class="circle"></div>
-
-<div class="timeline-content">
-
-<h3>M.Sc. Physics</h3>
-
-<h4>Indian Institute of Technology Kharagpur</h4>
-
-<span>2023 – 2025</span>
-
-<p>
-
-Institute Silver Medalist
-
-<br>
-
-CGPA: 9.61 / 10
-
-</p>
-
-</div>
-
-</div>
-
-<div class="timeline-item">
-
-<div class="circle"></div>
-
-<div class="timeline-content">
-
-<h3>B.Sc. (Hons.) Physics</h3>
-
-<h4>Jadavpur University</h4>
-
-<span>2020 – 2023</span>
-
-<p>
-
-University Gold Medalist
-
-<br>
-
-CGPA: 9.62 / 10
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-/*=========================
-AWARDS
-=========================*/
-
-.award-grid{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:30px;
-
-}
-
-.award-card{
-
-background:white;
-padding:35px;
-text-align:center;
-border-radius:18px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-transition:.35s;
-
-}
-
-.award-card:hover{
-
-transform:translateY(-12px);
-
-}
-
-.award-card i{
-
-font-size:52px;
-color:#ffb400;
-margin-bottom:20px;
-
-}
-
-.award-card h3{
-
-margin-bottom:12px;
-
-}
-
-
-
-/*=========================
-PUBLICATIONS
-=========================*/
-
-.publication-card{
-
-max-width:850px;
-margin:auto;
-background:white;
-padding:40px;
-border-radius:18px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-
-}
-
-.publication-card h3{
-
-margin-bottom:15px;
-
-}
-
-
-
-/*=========================
-SKILLS
-=========================*/
-
-.skill-grid{
-
-max-width:900px;
-margin:auto;
-
-}
-
-.skill{
-
-margin-bottom:30px;
-
-}
-
-.skill h4{
-
-margin-bottom:8px;
-
-}
-
-.bar{
-
-width:100%;
-height:12px;
-background:#ddd;
-border-radius:20px;
-overflow:hidden;
-
-}
-
-.fill{
-
-height:100%;
-background:#2d8cff;
-border-radius:20px;
-
-}
-
-
-
-/*=========================
-CONTACT
-=========================*/
-
-.contact-box{
-
-max-width:700px;
-margin:auto;
-background:white;
-padding:40px;
-border-radius:18px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-
-}
-
-.contact-box p{
-
-margin-bottom:20px;
-font-size:18px;
-
-}
-
-.contact-box i{
-
-color:#2d8cff;
-margin-right:10px;
-
-}
-
-
-
-/*=========================
-FOOTER
-=========================*/
-
-footer{
-
-background:#08111f;
-color:white;
-padding:30px;
-text-align:center;
-
-margin-top:80px;
-
-}
-
-<!-- =========================================
-AWARDS
-========================================= -->
-
-<section id="awards">
-
-<div class="container">
-
-<div class="title">
-<h2>Awards & Achievements</h2>
-<p>Academic Excellence</p>
-</div>
-
-<div class="award-grid">
-
-<div class="award-card">
-<i class="fas fa-medal"></i>
-<h3>Chairman Board of Governors Gold Medal</h3>
-<p>IIT Kharagpur (2025)</p>
-</div>
-
-<div class="award-card">
-<i class="fas fa-award"></i>
-<h3>Institute Silver Medal</h3>
-<p>First Rank in M.Sc. Physics, IIT Kharagpur</p>
-</div>
-
-<div class="award-card">
-<i class="fas fa-trophy"></i>
-<h3>University Gold Medal</h3>
-<p>Jadavpur University (2023)</p>
-</div>
-
-<div class="award-card">
-<i class="fas fa-star"></i>
-<h3>DST INSPIRE Scholar</h3>
-<p>Government of India</p>
-</div>
-
-<div class="award-card">
-<i class="fas fa-star"></i>
-<h3>JBNSTS Scholar</h3>
-<p>Junior Scholar (2018)</p>
-</div>
-
-<div class="award-card">
-<i class="fas fa-certificate"></i>
-<h3>CSIR NET JRF</h3>
-<p>AIR 62 (December 2024)</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================================
-PUBLICATIONS
-========================================= -->
-
-<section id="publications">
-
-<div class="container">
-
-<div class="title">
-
-<h2>Publications</h2>
-
-<p>Research Output</p>
-
-</div>
-
-<div class="publication-card">
-
-<h3>Research Articles</h3>
-
-<p>
-
-My first research article on multipartite entanglement generation in
-Discrete-Time Quantum Walks is currently under preparation.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================================
-SKILLS
-========================================= -->
-
-<section id="skills">
-
-<div class="container">
-
-<div class="title">
-
-<h2>Technical Skills</h2>
-
-<p>Programming & Software</p>
-
-</div>
-
-<div class="skill-grid">
-
-<div class="skill">
-
-<h4>Python</h4>
-
-<div class="bar">
-
-<div class="fill" style="width:95%;"></div>
-
-</div>
-
-</div>
-
-<div class="skill">
-
-<h4>Qiskit SDK</h4>
-
-<div class="bar">
-
-<div class="fill" style="width:90%;"></div>
-
-</div>
-
-</div>
-
-<div class="skill">
-
-<h4>LaTeX</h4>
-
-<div class="bar">
-
-<div class="fill" style="width:95%;"></div>
-
-</div>
-
-</div>
-
-<div class="skill">
-
-<h4>FORTRAN</h4>
-
-<div class="bar">
-
-<div class="fill" style="width:75%;"></div>
-
-</div>
-
-</div>
-
-<div class="skill">
-
-<h4>Linux</h4>
-
-<div class="bar">
-
-<div class="fill" style="width:85%;"></div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================================
-CONTACT
-========================================= -->
-
-<section id="contact">
-
-<div class="container">
-
-<div class="title">
-
-<h2>Contact</h2>
-
-<p>Let's Connect</p>
-
-</div>
-
-<div class="contact-box">
-
-<p>
-
-<i class="fas fa-envelope"></i>
-
-<strong>Email:</strong>
-
-hazrasandipan55@gmail.com
-
-</p>
-
-<p>
-
-<i class="fas fa-university"></i>
-
-Department of Physics<br>
-
-Indian Institute of Technology Kharagpur
-
-</p>
-
-<p>
-
-<i class="fas fa-flask"></i>
-
-Research Interests:
-Quantum Information,
-Quantum Computing,
-Discrete-Time Quantum Walks,
-Quantum Technologies.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<footer>
-
-<div class="container">
-
-<p>
-
-© 2026 Sandipan Hazra |
-Department of Physics,
-Indian Institute of Technology Kharagpur
-
-</p>
-
-</div>
-
+<main>
+
+  <!-- HOME -->
+  <section class="page active" id="page-home">
+    <div class="container">
+      <div class="hero">
+        <div class="hero-text">
+          <div class="greeting">Welcome</div>
+          <h1>Sandipan Hazra</h1>
+          <div class="title-line">PhD Scholar in Quantum Information Theory, IIT Kharagpur</div>
+          <p class="bio">
+            I am a doctoral scholar in the <strong>Department of Physics, IIT Kharagpur</strong>,
+            working on <strong>Quantum Information Theory</strong>. My interests span quantum
+            information, quantum metrology, quantum computing and quantum technology, alongside
+            a strong interest in science communication.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Quantum Information</span>
+            <span class="pill">Quantum Metrology</span>
+            <span class="pill">Quantum Computing</span>
+            <span class="pill">Quantum Technology</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="avatar-mark">SH</div>
+          <div class="caption">IIT Kharagpur</div>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <i class="fas fa-atom"></i>
+          <h3>Research Focus</h3>
+          <p>Quantum information theory, quantum metrology and sensing, quantum computing and quantum technology.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-medal"></i>
+          <h3>Academic Record</h3>
+          <p>Institute Silver Medalist (MSc, IIT Kharagpur) and Gold Medalist (BSc Hons., Jadavpur University).</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-check-double"></i>
+          <h3>National Qualifications</h3>
+          <p>CSIR NET JRF, AIR 62 (Dec 2024) and GATE Physics, AIR 299 (2025).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="page" id="page-about">
+    <div class="container">
+      <span class="eyebrow">Profile</span>
+      <h2>About Me</h2>
+      <hr class="rule">
+      <div class="content-block">
+        <p>
+          I am currently a <strong>PhD Scholar</strong> in the Department of Physics at
+          <strong>IIT Kharagpur</strong>, working on <strong>Quantum Information Theory</strong>.
+          Before beginning my doctoral studies, I completed my M.Sc. in Physics at IIT Kharagpur,
+          graduating as the <strong>Institute Silver Medalist</strong>, and my B.Sc. (Hons.) in
+          Physics at <strong>Jadavpur University</strong>, where I graduated as the
+          <strong>Gold Medalist</strong> of my department.
+        </p>
+        <p>
+          My interests lie at the intersection of quantum information, quantum metrology and
+          sensing, quantum computing, and quantum technology more broadly — along with a genuine
+          enthusiasm for science communication.
+        </p>
+        <p><i class="fas fa-graduation-cap" style="color:var(--accent);margin-right:0.5rem;"></i>
+          <strong>Relevant courses:</strong> Quantum Information, Photonic Quantum Information
+          Technology, Quantum Optics, Quantum Many‑Body Theory, Quantum Sensing and Metrology.
+        </p>
+        <div class="pill-row">
+          <span class="pill">Quantum Information</span>
+          <span class="pill">Photonic QIT</span>
+          <span class="pill">Quantum Optics</span>
+          <span class="pill">Quantum Many-Body Theory</span>
+          <span class="pill">Quantum Sensing &amp; Metrology</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="page" id="page-education">
+    <div class="container">
+      <span class="eyebrow">Academic Record</span>
+      <h2>Education</h2>
+      <hr class="rule">
+      <div class="timeline">
+        <div class="t-item">
+          <div class="t-year">2025 – present</div>
+          <h3>PhD Scholar, IIT Kharagpur</h3>
+          <p>Topic: Quantum Information Theory</p>
+        </div>
+        <div class="t-item">
+          <div class="t-year">2023 – 2025</div>
+          <h3>M.Sc. in Physics, IIT Kharagpur</h3>
+          <p>CGPA: 9.61 / 10</p>
+          <span class="badge">Institute Silver Medalist</span>
+        </div>
+        <div class="t-item">
+          <div class="t-year">2020 – 2023</div>
+          <h3>B.Sc. (Hons.) in Physics, Jadavpur University</h3>
+          <p>CGPA: 9.62 / 10</p>
+          <span class="badge">Gold Medalist</span>
+        </div>
+        <div class="t-item">
+          <div class="t-year">June 2020</div>
+          <h3>Class 12, WBCHSE</h3>
+          <p>Percentage: 98.2 / 100</p>
+        </div>
+        <div class="t-item">
+          <div class="t-year">June 2018</div>
+          <h3>Class 10, WBBSE</h3>
+          <p>Percentage: 94.14 / 100</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section class="page" id="page-achievements">
+    <div class="container">
+      <span class="eyebrow">Recognition</span>
+      <h2>Awards &amp; Test Scores</h2>
+      <hr class="rule">
+
+      <div class="content-block">
+        <h3 style="font-size:0.8rem;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.8rem;">Awards &amp; Achievements</h3>
+        <ul class="num-list">
+          <li><span class="idx">01</span><span>JBNSTS Junior Scholar, 2018</span></li>
+          <li><span class="idx">02</span><span>Secured 9th rank in West Bengal state, Class 12 board (WBCHSE), 2020</span></li>
+          <li><span class="idx">03</span><span>DST‑INSPIRE Scholar, 2020</span></li>
+          <li><span class="idx">04</span><span>Ashima and Benoy Krishna Bhattacharyya Memorial Award, 2021 — Alumni Association of Jadavpur University, for highest marks in the Physics Department, 1st year</span></li>
+          <li><span class="idx">05</span><span>University Medal, 2023 — Jadavpur University, for standing first in the Physics Department</span></li>
+          <li><span class="idx">06</span><span>Institute Silver Medal, 2025 — IIT Kharagpur, for standing first in 2‑year M.Sc. Physics</span></li>
+          <li><span class="idx">07</span><span>Chairman Board of Governors Gold Medal, 2025 — IIT Kharagpur</span></li>
+        </ul>
+      </div>
+
+      <div class="content-block" style="margin-top:2.4rem;">
+        <h3 style="font-size:0.8rem;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.8rem;">Test Scores</h3>
+        <div class="score-grid">
+          <div class="score-card"><div class="label">WBJEE 2020</div><div class="value">Rank 844</div></div>
+          <div class="score-card"><div class="label">JEE Main 2020</div><div class="value">94.86<span style="font-size:0.9rem;">pctl</span></div></div>
+          <div class="score-card"><div class="label">JAM 2023 · Physics</div><div class="value">AIR 50</div><div class="sub">Marks: 55/100</div></div>
+          <div class="score-card"><div class="label">GATE 2024 · Physics</div><div class="value">AIR 375</div><div class="sub">Score: 586</div></div>
+          <div class="score-card"><div class="label">GATE 2025 · Physics</div><div class="value">AIR 299</div><div class="sub">Score: 573</div></div>
+          <div class="score-card"><div class="label">CSIR NET, Jun 2024</div><div class="value">AIR 166</div><div class="sub">Qualified JRF</div></div>
+          <div class="score-card"><div class="label">CSIR NET, Dec 2024</div><div class="value">AIR 62</div><div class="sub">Qualified JRF</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="page" id="page-skills">
+    <div class="container">
+      <span class="eyebrow">Capabilities</span>
+      <h2>Skills &amp; Competencies</h2>
+      <hr class="rule">
+
+      <div class="content-block">
+        <div class="skill-block">
+          <h3>Operating Systems</h3>
+          <div class="pill-row"><span class="pill">Windows</span><span class="pill">Linux</span></div>
+        </div>
+        <div class="skill-block">
+          <h3>Programming Languages</h3>
+          <div class="pill-row"><span class="pill">FORTRAN 90</span><span class="pill">Python</span><span class="pill">Qiskit SDK</span></div>
+        </div>
+        <div class="skill-block">
+          <h3>Software Tools</h3>
+          <div class="pill-row"><span class="pill">Microsoft Excel</span><span class="pill">Origin</span><span class="pill">LaTeX</span><span class="pill">GNU Plot</span></div>
+        </div>
+        <div class="skill-block">
+          <h3>Core Competencies</h3>
+          <ul>
+            <li>Curiosity</li>
+            <li>Hard-working</li>
+            <li>Good presentation and communication skills</li>
+            <li>Interested in learning new things</li>
+            <li>Sincere and honest</li>
+          </ul>
+        </div>
+        <div class="skill-block">
+          <h3>Languages</h3>
+          <div class="pill-row">
+            <span class="pill">Bengali — Mother tongue</span>
+            <span class="pill">English — Fluent</span>
+            <span class="pill">Hindi — Fluent</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="page" id="page-contact">
+    <div class="container">
+      <span class="eyebrow">Get in touch</span>
+      <h2>Contact</h2>
+      <hr class="rule">
+      <div class="content-block">
+        <p>I welcome academic correspondence, collaboration inquiries, and questions about my research.</p>
+        <div class="contact-row">
+          <div class="contact-item"><i class="fas fa-envelope"></i><span><a href="mailto:hazrasandipan55@gmail.com">hazrasandipan55@gmail.com</a></span></div>
+          <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Department of Physics, IIT Kharagpur<br>Kharagpur, West Bengal 721302, India</span></div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-item"><i class="fas fa-flag"></i><span>Nationality: Indian</span></div>
+          <div class="contact-item"><i class="fas fa-cake-candles"></i><span>DOB: 19/11/2001</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="copy">© 2026 Sandipan Hazra · Department of Physics, IIT Kharagpur</div>
+    <div class="footer-social">
+      <a href="mailto:hazrasandipan55@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
 </footer>
 
-
-
 <script>
+(function(){
+  'use strict';
+  const navLinks = document.querySelectorAll('.main-nav a[data-page]');
+  const pages = {
+    home: document.getElementById('page-home'),
+    about: document.getElementById('page-about'),
+    education: document.getElementById('page-education'),
+    achievements: document.getElementById('page-achievements'),
+    skills: document.getElementById('page-skills'),
+    contact: document.getElementById('page-contact')
+  };
 
-const links=document.querySelectorAll("nav a");
+  function showPage(id){
+    Object.values(pages).forEach(p => p.classList.remove('active'));
+    if(pages[id]) pages[id].classList.add('active');
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if(link.dataset.page === id) link.classList.add('active');
+    });
+    document.getElementById('mainNav').classList.remove('open');
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
 
-links.forEach(link=>{
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      const page = this.dataset.page;
+      if(page && pages[page]) showPage(page);
+    });
+  });
 
-link.addEventListener("click",function(e){
+  document.getElementById('navToggle').addEventListener('click', function(){
+    document.getElementById('mainNav').classList.toggle('open');
+  });
 
-e.preventDefault();
+  const hash = window.location.hash.replace('#','');
+  if(hash && pages[hash]) showPage(hash);
 
-document.querySelector(this.getAttribute("href"))
-.scrollIntoView({
-
-behavior:"smooth"
-
-});
-
-});
-
-});
-
+  window.showPage = showPage;
+})();
 </script>
 
 </body>
-
 </html>
