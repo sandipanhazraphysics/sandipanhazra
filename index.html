@@ -111,18 +111,25 @@
   .hero-text .bio strong{color:#1c1a16;font-weight:600;}
 
   .hero-visual{flex:1;min-width:180px;text-align:center;}
-  .avatar-mark{
-    width:150px;height:150px;
-    margin:0 auto;
-    border-radius:50%;
-    background:var(--accent-soft);
-    border:1px solid var(--line);
-    display:flex;align-items:center;justify-content:center;
-    font-family:'Source Serif 4', serif;
-    font-size:2.6rem;
-    font-weight:600;
-    color:var(--accent);
-  }
+ .avatar-mark {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.avatar-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
   .hero-visual .caption{margin-top:0.9rem;font-size:0.82rem;color:var(--text-dim);letter-spacing:0.04em;}
 
   /* ---------- cards ---------- */
@@ -283,8 +290,11 @@
           </p>
         </div>
         <div class="hero-visual">
-          <div class="avatar-mark"><img src="pic2.png" alt="Dr Sandy"></div>
-          <div class="caption">IIT Kharagpur</div>
+          <div class="avatar-mark">
+  <img src="pic2.png" alt="Profile">
+</div>
+       
+        
         </div>
       </div>
 
